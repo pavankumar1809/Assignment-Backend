@@ -6,6 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.*;
+
+import org.hibernate.validator.constraints.UniqueElements;
 
 @Entity
 @Table(name = "users")
@@ -15,23 +18,42 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "name")
-	private String name;
+	@Column(name = "first_name")
+	//@NotBlank(message = "name should not be blank")
+	private String firstName;
 	
+	@Column(name = "last_name")
+	//@NotBlank(message = "name should not be blank")
+	private String lastName;
 	@Column(name = "dept")
+	//@NotBlank(message = "dept should not be blank")
 	private String dept;
 	
 	@Column(name="username")
+	//@NotBlank(message = "username should not be blank")
+	//@UniqueElements(message = "username ")
 	private String username;
 	
 	@Column(name = "password")
+	//@NotBlank(message = "password should not be blank")
 	private String password;
 	
 	@Column(name = "gender")
+	//@NotBlank(message = "gender should not be blank")
 	private String gender;
 	
+	@Column(name = "role")
+	//@NotBlank(message = "gender should not be blank")
+	private String role;
+	
 	@Column(name = "age")
+	//@NotBlank(message = "age should not be blank")
+	//@Min(10)
 	private int age;
+	
+	@Column(name = "emp_id")
+	//@NotBlank(message = "name should not be blank")
+	private Long emp_id;
 
 	public Long getId() {
 		return id;
@@ -57,6 +79,14 @@ public class User {
 		this.password = password;
 	}
 
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
 	public String getDept() {
 		return dept;
 	}
@@ -65,13 +95,7 @@ public class User {
 		this.dept = dept;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
+	
 
 	public String getGender() {
 		return gender;
@@ -89,11 +113,38 @@ public class User {
 		this.age = age;
 	}
 
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public Long getEmp_id() {
+		return emp_id;
+	}
+
+	public void setEmp_id(Long emp_id) {
+		this.emp_id = emp_id;
+	}
+
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", dept=" + dept + ", username=" + username + ", password="
-				+ password + ", gender=" + gender + ", age=" + age + "]";
+		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", dept=" + dept
+				+ ", username=" + username + ", password=" + password + ", gender=" + gender + ", role=" + role
+				+ ", age=" + age + ", emp_id=" + emp_id + "]";
 	}
+
+	
 
 	
 

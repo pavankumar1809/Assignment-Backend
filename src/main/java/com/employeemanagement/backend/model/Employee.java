@@ -57,6 +57,9 @@ public class Employee {
 	@Column(name = "ifsc")
 	private String ifsc;
 	
+	@Column(name = "user_id")
+	private Long user_id;
+	
 	public Employee() {
 
 	}
@@ -100,6 +103,15 @@ public class Employee {
 	public void setIfsc(String ifsc) {
 		this.ifsc = ifsc;
 	}
+	
+	public Long getUser_id() {
+		return user_id;
+	}
+
+	public void setUser_id(Long user_id) {
+		this.user_id = user_id;
+	}
+
 	public Employee(String firstName, String lastName, String email, String role, int base, int age, String branch,
 			String country) {
 		super();
@@ -198,7 +210,7 @@ public class Employee {
 		return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
 				+ ", mobile=" + mobile + ", role=" + role + ", base=" + base + ", bonus=" + bonus + ", age=" + age
 				+ ", branch=" + branch + ", country=" + country + ", acc_no=" + acc_no + ", gender=" + gender
-				+ ", bank=" + bank + ", ifsc=" + ifsc + "]";
+				+ ", bank=" + bank + ", ifsc=" + ifsc + ", user_id=" + user_id + "]";
 	}
 
 	
